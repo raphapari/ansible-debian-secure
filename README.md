@@ -1,4 +1,4 @@
-# Ansible Debian Secure
+# Ansible Debian Secure Playbook
 
 ## What is this repository for?
 
