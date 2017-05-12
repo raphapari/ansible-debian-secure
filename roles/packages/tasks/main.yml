@@ -1,0 +1,26 @@
+---
+- name: Add main-contrib APT repositories
+  apt_repository: repo='deb-src http://httpredir.debian.org/debian stable main contrib' state=present
+
+- name: Get aptitude for upgrade
+  apt: pkg=aptitude state=present
+
+- name: Update APT package cache
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: Upgrade APT to the latest packages
+  apt: upgrade=safe
+
+- name: Install required packages
+  apt: state=installed pkg={{ item }}
+  with_items: '{{packages_required}}'
+
+- name: Install optional packages
+  apt: state=installed pkg={{ item }}
+  with_items: '{{packages_optional}}'
+  register: installation
+
+- name: Setup APT update intervals
+  template:
+    src: "apt_periodic.j2"
+    dest: "/etc/apt/apt.conf.d/10periodic"

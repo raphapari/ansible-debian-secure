@@ -1,0 +1,15 @@
+---
+
+- name: Add deploy user with ZSH shell
+  user: name="{{ users_deploy_username }}" password="{{ users_deploy_password }}" shell="/bin/{{ users_deploy_bash }}"
+
+- name: Add authorized keys for deploy user
+  authorized_key: user={{ users_deploy_username }}
+                  key="{{ lookup('file', item) }}"
+  with_items: "{{users_public_keys_path}}"
+
+- name: Add deploy user to sudoers
+  lineinfile: dest=/etc/sudoers
+              regexp="{{ users_deploy_username }} ALL"
+              line="{{ users_deploy_username }} ALL=(ALL) NOPASSWD:ALL"
+              state=present

@@ -1,0 +1,13 @@
+---
+- name: Provisionning web server
+  hosts: servers
+  remote_user: root
+
+  roles:
+    - packages
+    - locales
+    - users
+    - zsh
+    - firewall
+    - sshsecurity
+...

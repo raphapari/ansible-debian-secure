@@ -1,0 +1,12 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+
+group_vars/all/vars.yml
+.DS_Store
+roles/zsh/.DS_Store
+roles/users/.DS_Storeroles/sshsecurity/.DS_Store
+roles/packages/.DS_Store
+roles/.DS_Store
+group_vars/.DS_Store
+roles/locales/.DS_Store
+roles/firewall/.DS_Store
+host

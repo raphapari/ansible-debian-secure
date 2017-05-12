@@ -1,0 +1,49 @@
+---
+
+#########################################
+# COMMON
+#########################################
+
+# Enter the SSH port you wish to use
+
+common_server_url: #ENTER YOUR SERVER URL
+common_ssh_port: #ENTER THE SSH PORT YOU WISH TO USE
+
+#########################################
+# PACKAGES
+#########################################
+
+# List of required packages
+
+packages_required:
+ - ufw
+ - fail2ban
+ - unattended-upgrades
+ - p7zip-full
+
+# List of optional packages, you can add yours here
+
+packages_optional:
+ - zsh
+ - git
+
+#########################################
+# USERS
+#########################################
+
+# Username, password, bash and local path(s) to the public key(s) you wish to configure for the deploy account 
+users_deploy_username: #ENTER YOUR DEPLOY ACCOUNT USERNAME
+users_deploy_password: #ENTER YOUR DEPLOY ACCOUNT PASSWORD
+users_deploy_bash: zsh
+users_public_keys_path:
+ - ~/.ssh/id_rsa.pub #ENTER YOUR PUBLIC RSA KEY LOCAL PATH
+
+#########################################
+# ZSH
+#########################################
+
+# ZSH theme
+zsh_theme_name: honukai
+zsh_theme_url: https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm/master/honukai.zsh-theme
+
+

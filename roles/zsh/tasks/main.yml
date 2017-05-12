@@ -1,0 +1,23 @@
+---
+
+- name: Backing up existing ~/.zshrc
+  shell: if [ -f ~/.zshrc ]; then mv ~/.zshrc{,.orig}; fi
+
+- name: Cloning oh-my-zsh from Github
+  git:
+    repo=https://github.com/robbyrussell/oh-my-zsh
+    dest=/home/{{ users_deploy_username }}/.oh-my-zsh
+  register: cloning
+
+- name: Create .zshrc
+  template:
+    src: "zshrc.j2"
+    dest: "/home/{{ users_deploy_username }}/.zshrc"
+  register: config
+  when: cloning|success
+
+- name: Importing Honukai theme for zsh
+  get_url:
+    url: '{{zsh_theme_url}}'
+    dest: /home/{{ users_deploy_username }}/.oh-my-zsh/themes/{{zsh_theme_name}}.zsh-theme
+  when: config|success
