@@ -22,7 +22,7 @@ This repository was made for Debian servers only and tested on debian 8 (jessie)
 
 1. Install ansible : http://docs.ansible.com/ansible/intro_installation.html#installation
 2. Clone this repository
-3. Change group_vars/all/vars_default to group_vars/all/vars and edit the fil with your info
+3. Change *group_vars/all/vars_default* to *group_vars/all/vars* and edit the file with your infos
 4. Add your server(s) adress(es) in the hosts file
 5. Launch the playbook from the folder with 
 ```ansible-playbook -i hosts provision.yml```
@@ -31,8 +31,9 @@ This repository was made for Debian servers only and tested on debian 8 (jessie)
 
 ## Credits
 
+- Raphaël Aparicio
 - Mischa ter Smitten for the locales role
-- Raphaël Aparicio for the rest
+
 
 ## Licence
 
