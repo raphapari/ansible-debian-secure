@@ -20,7 +20,7 @@ There are of course ways to improve security further, but I consider this to be 
 
 This repository was made for Debian servers only and tested on debian 8 (jessie) from Mac and Linux.
 
-1. Install ansible : http://docs.ansible.com/ansible/intro_installation.html#installation
+1. Install ansible : https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-and-upgrading-ansible
 2. Clone this repository
 3. Change *group_vars/all/vars_default* to *group_vars/all/vars* and edit the file with your infos
 4. Add your server(s) adress(es) in the hosts file
